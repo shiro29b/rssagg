@@ -9,12 +9,22 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 )
+
+
 
 
 func main() {
 	godotenv.Load()
 	portString:= os.Getenv("PORT")
+	dbURL:= os.Getenv("DB_URL")
+	if dbURL==""{
+		log.Fatal("db url is not found")
+	}
+	
+	
+
 	
 	router:= chi.NewRouter()
 	
